@@ -83,3 +83,5 @@ ADD osa10.2_init.sh osa10.2_init.sh
 
 ADD init.sh init.sh
 
+ADD build-component.sh build-component.sh
+RUN bash build-component.sh spimodfit
