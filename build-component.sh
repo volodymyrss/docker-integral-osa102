@@ -1,8 +1,15 @@
 component_dir=${1:?}
 
-cd $component_dir
+if [ -d "$component_dir" ]; then
+    source osa10.2_init.sh
 
-source osa10.2_init.sh
-$ISDC_ENV/ac_stuff/configure
-make install
+    cd $component_dir 
+
+    $ISDC_ENV/ac_stuff/configure
+    make 
+else
+    echo "what is this? $component_dir"
+    exit 1
+fi
+
 

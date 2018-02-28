@@ -1,7 +1,8 @@
 IMAGE_NAME="volodymyrsavchenko/integral-osa:latest"
+extra_component_dir?=spimodfit
 
 build: 
-	docker build -t $(IMAGE_NAME)  .
+	docker build -t $(IMAGE_NAME) --build-arg component_dir=$(extra_component_dir) .
 
 push: build
 	docker push $(IMAGE_NAME)

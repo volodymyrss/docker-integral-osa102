@@ -84,4 +84,12 @@ ADD osa10.2_init.sh osa10.2_init.sh
 ADD init.sh init.sh
 
 ADD build-component.sh build-component.sh
-RUN bash build-component.sh spimodfit
+
+ARG component_dir
+ADD ${component_dir} component_dir
+
+USER root
+RUN chown -R integral component_dir
+USER integral
+
+RUN bash build-component.sh component_dir
